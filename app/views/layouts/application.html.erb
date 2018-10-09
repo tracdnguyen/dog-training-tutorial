@@ -11,6 +11,12 @@
 
   <body>
     <%= render 'layouts/alerts' %>
+    <% if !trainer_signed_in? %>
+      <%= link_to "Sign Up", new_trainer_registration_path %>
+      <%= link_to "Sign In", new_trainer_session_path %>
+    <% else %>
+      <%= link_to "Logout", destroy_trainer_session_path, :method => :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
