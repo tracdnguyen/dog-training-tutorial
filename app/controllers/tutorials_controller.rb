@@ -1,6 +1,7 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :destroy, :update]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
      @tutorials = Tutorial.all
   end
