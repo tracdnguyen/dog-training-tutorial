@@ -27,6 +27,22 @@ class TutorialsController < ApplicationController
     end
   end
 
+  def update
+    @tutorial.update(tutorial_params)
+    if @tutorial.save
+      flash[:notice] = "Successfully Edited Tutorial"
+      redirect_to tutorial_path(@tutorial)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    if @tutorial.destroy
+      flash[:notice] = "Successfully Deleted Tutorial"
+      redirect_to tutorials_path
+    end
+  end
 
   private
 
