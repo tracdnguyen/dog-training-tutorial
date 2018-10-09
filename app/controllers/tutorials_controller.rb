@@ -3,17 +3,23 @@ class TutorialsController < ApplicationController
   end
 
   def new
-
+    @tutorial = current_trainer.tutorials.build
   end
 
   def create
-
+    @tutorial = current_trainer.tutorials.build(tutorial_params)
+    if @tutorial.save
+      redirect_to tutorial_path(@tutorial)
+      flash[:notice] = "Successfully Created Tutorial"
+    else
+      render 'new'
+    end
   end
 
 
   private
 
-  def tutorials_params
+  def tutorial_params
     params.require(:tutorial).permit(:title, :content)
   end
 end
