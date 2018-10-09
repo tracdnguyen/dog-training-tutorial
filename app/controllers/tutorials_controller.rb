@@ -6,6 +6,14 @@ class TutorialsController < ApplicationController
     @tutorial = current_trainer.tutorials.build
   end
 
+  def show
+
+  end
+
+  def edit
+
+  end
+
   def create
     @tutorial = current_trainer.tutorials.build(tutorial_params)
     if @tutorial.save
