@@ -39,7 +39,7 @@ class TutorialsController < ApplicationController
   end
 
   def destroy
-    if !@tutorial.trainer
+    if @tutorial.trainer == current_trainer
       if @tutorial.destroy
         flash[:notice] = "Successfully Deleted Tutorial"
         redirect_to tutorials_path
