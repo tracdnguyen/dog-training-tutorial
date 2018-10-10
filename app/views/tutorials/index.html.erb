@@ -4,7 +4,7 @@
   <%= link_to tutorial.title, tutorial_path(tutorial) %><br>
   <%# tutorial.body %>
   <%# tutorial.rating %>
-
+  <%= tutorial.trainer.email %>
   <%= link_to "Edit", edit_tutorial_path(tutorial) %>
   <%= link_to "Delete", tutorial, method: :delete, data: { confirm: "Are you sure you want to delete this tutorial?"} %>
 <% end %>
