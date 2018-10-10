@@ -4,6 +4,7 @@ class Trainer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :tutorials
   has_many :comments
-  has_many :tutorials, through: :comments
+  has_many :tutorial_comments, through: :comments, :class_name => "Tutorial"
 end
