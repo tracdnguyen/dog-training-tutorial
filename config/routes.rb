@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   resources :tutorials
 
+  resources :tutorials do
+    resources :comments
+  end
 end
