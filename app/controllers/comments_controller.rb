@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-
+    @comment = @tutorial.comments.find(params[:id])
   end
 
   def update
