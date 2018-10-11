@@ -6,7 +6,7 @@
 <%= render @tutorial.comments %>
 
 <h2>Add a comment:</h2>
-<%= render "comments/form" %>
+<%= render partial: "comments/form", locals: { new_comment: @comment, tutorial: @tutorial } %>
 
 <%= link_to "Edit", edit_tutorial_path(@tutorial) %>
 
