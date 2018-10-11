@@ -22,7 +22,14 @@ class CommentsController < ApplicationController
   end
 
   def update
-
+    @comment = @tutorial.comments.find(params[:id])
+    @comment.update(comment_params)
+    if @comment.save
+      flash[:notice] = "Successfully Edited Comment"
+      redirect_to tutorial_path(@tutorial)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
