@@ -1,2 +1,9 @@
 <h1> Edit Comment </h1>
-<%= render partial: 'form', locals: { new_comment: @comment, tutorial: @tutorial } %>
+
+<%= form_for([ @tutorial, @comment ]) do |f| %>
+  <%= f.label :content %><br/>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+
+<% end %>
