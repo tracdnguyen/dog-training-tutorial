@@ -2,14 +2,11 @@
 
 <%= @tutorial.content %>
 
-<% if !current_trainer %>
-  <%= form_for @comment do |f| %>
-    <%= f.text.label :content %>
-    <%= f.text_area :content %>
+<h2>Comments</h2>
+<%= render @tutorial.comments %>
 
-    <% f.submit %>
-  <% end %>
-<% end %>
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
 
 <%= link_to "Edit", edit_tutorial_path(@tutorial) %>
 
