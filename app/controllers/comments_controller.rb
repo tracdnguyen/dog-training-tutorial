@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :load_tutorial
-
+  before_action :authenticate_trainer!
+  
   def new
 
   end
