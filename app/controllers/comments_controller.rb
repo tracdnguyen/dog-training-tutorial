@@ -17,6 +17,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
+
   def destroy
     @comment = @tutorial.comments.find(params[:id])
     if @comment.destroy
