@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Successfully Created Comment"
       redirect_to tutorial_path(@tutorial)
     else
-      render 'new'
+      flash[:notice] = "Comment Cannot Be Left Blank"
+      redirect_to tutorial_path(@tutorial)
     end
   end
 
