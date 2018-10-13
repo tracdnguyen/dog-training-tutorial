@@ -23,12 +23,17 @@ class CommentsController < ApplicationController
 
   def update
     @comment = @tutorial.comments.find(params[:id])
-    @comment.update(comment_params)
-    if @comment.save
-      flash[:notice] = "Successfully Edited Comment"
-      redirect_to tutorial_path(@tutorial)
+    if @comment.trainer_id == current_trainer.id
+      @comment.update(comment_params)
+      if @comment.save
+        flash[:notice] = "Successfully Edited Comment"
+        redirect_to tutorial_path(@tutorial)
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      flash[:notice] = "You Can Only Edit Your Own Comments"
+      redirect_to tutorial_path(@tutorial)
     end
   end
 
