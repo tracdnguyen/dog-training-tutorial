@@ -29,12 +29,17 @@ class TutorialsController < ApplicationController
   end
 
   def update
-    @tutorial.update(tutorial_params)
-    if @tutorial.save
-      flash[:notice] = "Successfully Edited Tutorial"
-      redirect_to tutorial_path(@tutorial)
+    if @tutorial.trainer_id == current_trainer.id
+      @tutorial.update(tutorial_params)
+      if @tutorial.save
+        flash[:notice] = "Successfully Edited Tutorial"
+        redirect_to tutorial_path(@tutorial)
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      flash[:notice] = "You Can Only Edit Your Own Tutorials"
+      redirect_to tutorial_path(@tutorial)
     end
   end
 
