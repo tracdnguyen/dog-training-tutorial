@@ -6,5 +6,6 @@ class Tutorial < ActiveRecord::Base
   has_many :comments
   has_many :trainers, through: :comments
 
-  scope :has_comments, -> { where(comments: true) }
+  scope :with_comments, -> { where(comments: true) }
+
 end
