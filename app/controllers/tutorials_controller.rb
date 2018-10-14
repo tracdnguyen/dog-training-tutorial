@@ -55,6 +55,10 @@ class TutorialsController < ApplicationController
     end
   end
 
+  def with_comments
+    @tutorials = Tutorial.with_comments
+  end
+
   private
 
   def set_tutorial
