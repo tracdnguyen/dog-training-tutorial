@@ -5,4 +5,6 @@ class Tutorial < ActiveRecord::Base
   belongs_to :trainer
   has_many :comments
   has_many :trainers, through: :comments
+
+  scope :has_comments, -> { where(comments: true) }
 end
