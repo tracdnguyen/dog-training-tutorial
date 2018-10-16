@@ -1,6 +1,6 @@
 <h1>Tutorials</h1>
 
-<%= link_to "Only View Tutorials With Comments", tutorial_with_comments_path %>
+<%= link_to "Only View Tutorials With Comments", tutorials_with_comments_path %>
 
 <% @tutorials.each do |tutorial| %>
   <%= link_to tutorial.title, tutorial_path(tutorial) %><br>
