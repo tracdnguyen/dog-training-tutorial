@@ -10,5 +10,4 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get 'tutorial/with_comments', to: 'tutorials#with_comments'
 end
