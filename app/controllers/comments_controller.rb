@@ -3,7 +3,11 @@ class CommentsController < ApplicationController
   before_action :authenticate_trainer!
 
   def index
-    
+    if params[:tutorial_id]
+      @comments = Comment.find(params[:tutorial_id]).comments
+    else
+      @comments = Comment.all
+    end
   end
 
   def new
