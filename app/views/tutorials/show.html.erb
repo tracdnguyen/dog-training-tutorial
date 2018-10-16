@@ -2,7 +2,10 @@
 
 <%= @tutorial.content %>
 
-<h2>Comments</h2>
+
+  <h2><%= link_to "Comments", tutorial_comments_path(@tutorial) %></h2>
+
+
 <%= render @tutorial.comments %>
 
 <h2>Add a comment:</h2>

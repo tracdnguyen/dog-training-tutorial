@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def index
     if params[:tutorial_id]
-      @comments = Comment.find(params[:tutorial_id]).comments
+      @comments = Tutorial.find(params[:tutorial_id]).comments
     else
       @comments = Comment.all
     end
