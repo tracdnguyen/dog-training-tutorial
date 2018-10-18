@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :load_tutorial
+  before_action :load_tutorial, only: [:create, :edit, :update, :destroy]
+  before_action :load_tutorial_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_trainer!
 
   def index
@@ -27,11 +28,10 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = @tutorial.comments.find(params[:id])
+
   end
 
   def update
-    @comment = @tutorial.comments.find(params[:id])
     if @comment.trainer_id == current_trainer.id
       @comment.update(comment_params)
       if @comment.save
@@ -47,12 +47,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @tutorial.comments.find(params[:id])
     if @comment.destroy
       flash[:notice] = "Successfully Deleted Comment"
       redirect_to tutorial_path(@tutorial)
     end
   end
+
   private
 
   def comment_params
@@ -60,6 +60,10 @@ class CommentsController < ApplicationController
   end
 
   def load_tutorial
-   @tutorial = Tutorial.find(params[:tutorial_id])
+    @tutorial = Tutorial.find(params[:tutorial_id])
+  end
+
+  def load_tutorial_comment
+    @comment = @tutorial.comments.find(params[:id])
   end
 end
