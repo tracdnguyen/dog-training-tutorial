@@ -29,7 +29,7 @@ class TutorialsController < ApplicationController
   end
 
   def update
-    if @tutorial.trainer_id == current_trainer.id
+    if @tutorial.trainer == current_trainer
       @tutorial.update(tutorial_params)
       if @tutorial.save
         flash[:notice] = "Successfully Edited Tutorial"
