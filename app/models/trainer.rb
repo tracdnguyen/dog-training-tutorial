@@ -6,7 +6,7 @@ class Trainer < ApplicationRecord
 
   has_many :tutorials
   has_many :comments
-  has_many :tutorial_comments, through: :comments, :class_name => "Tutorial"
+  has_many :commented_tutorials, through: :comments, :class_name => "Tutorial"
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |trainer|
@@ -17,5 +17,5 @@ class Trainer < ApplicationRecord
     end
   end
 
-  
+
 end
