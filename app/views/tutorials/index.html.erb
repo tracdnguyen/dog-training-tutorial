@@ -2,12 +2,15 @@
 
 <%= link_to "Only View Tutorials With Comments", tutorials_with_comments_path %></br></br>
 
-<% @tutorials.each do |tutorial| %>
-  <%= link_to tutorial.title, tutorial_path(tutorial) %> by:
-  <%= tutorial.trainer.email %>
-  <% if tutorial.trainer_id == current_trainer.id %>
-    <%= link_to "Edit", edit_tutorial_path(tutorial) %>
-    <%= link_to "Delete", tutorial, method: :delete, data: { confirm: "Are you sure you want to delete this tutorial?"} %>
+<ul class="list-group">
+  <% @tutorials.each do |tutorial| %>
+    <li class="list-group-item"><%= link_to tutorial.title, tutorial_path(tutorial) %>
+     by: <%= tutorial.trainer.email %>
+     <% if tutorial.trainer_id == current_trainer.id %>
+       <%= link_to "Edit", edit_tutorial_path(tutorial) %>
+       <%= link_to "Delete", tutorial, method: :delete, data: { confirm: "Are you sure you want to delete this tutorial?"} %>
+     <% end %>
+   </li>
+  </br>
   <% end %>
-</br>
-<% end %>
+</ul>
