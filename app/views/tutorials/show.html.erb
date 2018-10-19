@@ -1,9 +1,20 @@
-<h2><%= @tutorial.title%></h2>
-
-<%= @tutorial.content %>
+<div class="container border">
+  <div class="row">
+    <div class="col-sm-8 tutorial-main">
+      <div class="tutorial-post">
+        <h2 class="tutorial-post-title"><%= @tutorial.title%></h2>
+        <p>
+          <%= @tutorial.content %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 </br></br>
-<%= link_to "Comments", tutorial_comments_path(@tutorial) %>
+<div class="container">
+  <%= link_to "Comments", tutorial_comments_path(@tutorial) %>
+</div>
 </br>
 
 <%= render @tutorial.comments %>
