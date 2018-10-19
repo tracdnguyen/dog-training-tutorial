@@ -2,9 +2,9 @@
 
 <%= @tutorial.content %>
 
-
-<h4><%= link_to "Comments", tutorial_comments_path(@tutorial) %></h4>
-
+</br></br>
+<%= link_to "Comments", tutorial_comments_path(@tutorial) %>
+</br>
 
 <%= render @tutorial.comments %>
 
