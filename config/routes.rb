@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get 'tutorials/trainer_tutorials' => "tutorials#trainer_tutorials"
   get 'tutorials/with_comments', to: 'tutorials#with_comments'
 
-  resources :tutorials, only: [:show] do
-    resources :comments, only: [:create, :update, :destroy, :show, :index, :edit, :new]
+  resources :tutorials do
+    resources :comments
   end
 
 
-  resources :tutorials, only: [:index, :create, :show, :edit, :update, :destroy, :new]
+  resources :tutorials
 end
