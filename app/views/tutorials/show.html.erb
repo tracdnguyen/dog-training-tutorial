@@ -1,14 +1,14 @@
-<h1><%= @tutorial.title%></h1>
+<h2><%= @tutorial.title%></h2>
 
 <%= @tutorial.content %>
 
 
-  <h2><%= link_to "Comments", tutorial_comments_path(@tutorial) %></h2>
+<h4><%= link_to "Comments", tutorial_comments_path(@tutorial) %></h4>
 
 
 <%= render @tutorial.comments %>
 
-<h2>Add a comment:</h2>
+<h4>Add a comment:</h4>
 <%= render partial: "comments/form", locals: { comment: @comment, tutorial: @tutorial } %>
 
 <% if @tutorial.trainer_id == current_trainer.id %>
