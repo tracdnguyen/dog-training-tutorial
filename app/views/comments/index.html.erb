@@ -1,4 +1,10 @@
 <% @comments.each do |comment| %></br>
-  <%= comment.trainer.email %> said: </br>
-  <%= comment.content %>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= comment.trainer.email %> said: </br>
+        <%= comment.content %>
+      </div>
+    </div>
+  </div>
 <% end %>
