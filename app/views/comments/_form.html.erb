@@ -3,7 +3,7 @@
     <div class="panel-heading">
       Add A Comment:
       <%= form_for([ tutorial, comment ]) do |f| %>
-        <%= f.text_area :content %></br>
+        <%= f.text_area :content, style: 'width:100%' %></br>
         <%= f.submit %>
       <% end %>
     </div>

@@ -1,5 +1,5 @@
 class Tutorial < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, presence: true, length: { minimum: 6 }
   validates :content, presence: true
 
   belongs_to :trainer
