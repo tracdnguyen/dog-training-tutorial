@@ -7,16 +7,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   </head>
 
   <body>
     <%= render 'layouts/alerts' %>
-    <% if !trainer_signed_in? %>
-      <%= link_to "Sign Up", new_trainer_registration_path %>
-      <%= link_to "Sign In", new_trainer_session_path %>
-    <% else %>
-      <%= link_to "Logout", destroy_trainer_session_path, :method => :delete %>
-    <% end %>
+    <%= render 'layouts/navbar' %>
     <%= yield %>
   </body>
 </html>

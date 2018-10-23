@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <% @tutorials.each do |tutorial| %>
+    <li class="list-group-item">
+      <%= link_to tutorial.title, tutorial_path(tutorial) %>
+    </li>
+  <% end %>
+</ul>
