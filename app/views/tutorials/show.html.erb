@@ -10,8 +10,11 @@
     </div>
   </div>
 </div>
-
-</br></br>
+</br>
+<div class="container ">
+  Link To Video: <%= link_to @tutorial.video_link, @tutorial.video_link %>
+</div>
+</br>
 <div class="container">
   <%= link_to "Comments", tutorial_comments_path(@tutorial) %>
 </div>
