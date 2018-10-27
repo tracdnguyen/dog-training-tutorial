@@ -4,7 +4,7 @@
 </div>
 </br>
 <div class="container ">
-  <% if !@tutorial.video_link.empty? %>
+  <% if !!@tutorial.video_link %>
     Link To Video: <%= link_to @tutorial.video_link, @tutorial.video_link %>
   <% end %>
 </div>
