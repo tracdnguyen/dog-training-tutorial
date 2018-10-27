@@ -1,24 +1,28 @@
-# README
+# Dog Training Tutorial Rails Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is designed to be a tutorial website for dog training which users can signup/login and create their own tutorials and comment on other tutorials.
 
-Things you may want to cover:
+## Installation
+Fork and clone repo:
+` https://github.com/tracdnguyen/dog-training-tutorial`
 
-* Ruby version
+Install all gem dependencies:
 
-* System dependencies
+` bundle install `
 
-* Configuration
+Create database scheme with migrations:
 
-* Database creation
+` rake db:migrate `
 
-* Database initialization
+If you want to view basic structure:
 
-* How to run the test suite
+` rake db:seed `
 
-* Services (job queues, cache servers, search engines, etc.)
+View site at http://localhost:3000
 
-* Deployment instructions
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/tracdnguyen/dog-training-tutorial. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* ...
+## License
+
+This library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
