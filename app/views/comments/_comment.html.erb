@@ -6,7 +6,7 @@
       <div class="panel-body">
         <%= comment.content %></br>
         <% if comment.trainer == current_trainer %>
-          <%= link_to 'Edit Comment', edit_tutorial_comment_path(@tutorial, comment) %>
+          <%= link_to 'Edit Comment', edit_tutorial_comment_path(comment.trainer, comment) %>
           <%= link_to 'Delete Comment', [comment.tutorial, comment], method: :delete, data: { confirm: 'Are you want to delete this comment?' } %></br></br>
         <% end %>
       </div><!-- /panel-body -->
