@@ -56,7 +56,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :helpfulness)
+    params.require(:comment).permit(:content)
   end
 
   def load_tutorial
