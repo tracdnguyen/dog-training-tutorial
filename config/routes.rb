@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :trainers do
+    resources :tutorials
+  end
+
   resources :tutorials
 end

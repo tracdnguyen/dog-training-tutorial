@@ -1,9 +1,14 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :destroy, :update]
   before_action :authenticate_trainer!, except: [:index, :show]
-
+  before_action :set_trainer, only: [:index]
+  
   def index
-    @tutorials = Tutorial.all
+    if params[:trainer_id]
+      @tutorials = Trainer.find(params[:trainer_id]).tutorials
+    else
+      @tutorials = Tutorial.all
+    end
   end
 
   def new
@@ -64,6 +69,9 @@ class TutorialsController < ApplicationController
   end
 
   private
+  def set_trainer
+    @trainer = Trainer.find(params[:trainer_id])
+  end
 
   def set_tutorial
     @tutorial = Tutorial.find(params[:id])
