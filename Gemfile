@@ -10,6 +10,8 @@ gem 'dotenv-rails'
 gem 'google-api-client'
 gem 'jquery-rails'
 
+gem 'active_model_serializers'
+
 gem 'bootstrap', '~> 4.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
