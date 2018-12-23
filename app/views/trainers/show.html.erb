@@ -1,11 +1,11 @@
 <%= @trainer.email %>
 
 <p>
-  <%= link_to "Load Tutorials", trainer_tutorials_path(@trainer), :class => "load_tutorials" %>
+  <%= link_to "Load All Trainer's Comments", trainer_comments_path(@trainer), :class => "load_comments" %>
 </p>
 
 
-<div class="tutorials">
+<div class="comments">
   <ul>
   </ul>
 </div>
