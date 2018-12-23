@@ -12,5 +12,9 @@ Rails.application.routes.draw do
     resources :tutorials
   end
 
+  resources :trainers do
+    resources :comments
+  end
+
   resources :tutorials
 end

@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
   def index
     if params[:tutorial_id]
       @comments = Tutorial.find(params[:tutorial_id]).comments
+    elsif params[:trainer_id]
+      @comments = Trainer.find(params[:trainer_id]).comments
     else
       @comments = Comment.all
     end
