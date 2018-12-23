@@ -5,6 +5,8 @@ class TutorialsController < ApplicationController
   def index
     if params[:trainer_id]
       @tutorials = Trainer.find(params[:trainer_id]).tutorials
+
+      render 'tutorials/index', :layout => false
     else
       @tutorials = Tutorial.all
     end
