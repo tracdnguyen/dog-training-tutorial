@@ -6,7 +6,8 @@ class TutorialsController < ApplicationController
     if params[:trainer_id]
       @tutorials = Trainer.find(params[:trainer_id]).tutorials
 
-      render 'tutorials/index', :layout => false
+      #render 'tutorials/index', :layout => false
+      render :json => @tutorials
     else
       @tutorials = Tutorial.all
     end
