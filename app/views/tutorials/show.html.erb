@@ -3,22 +3,28 @@
   <p><%= @tutorial.content %></p>
 </div>
 </br>
-<div class="container ">
-  <% if !!@tutorial.video_link %>
-    Link To Video: <%= link_to @tutorial.video_link, @tutorial.video_link %>
-  <% end %>
+<div class="container video">
+  <p>
+    <% if !!@tutorial.video_link %>
+      Link To Video: <%= link_to @tutorial.video_link, @tutorial.video_link %>
+    <% end %>
+  </p>
 </div>
 </br>
-<div class="container">
+<div class="container all_comments">
   <%= link_to "Comments", tutorial_comments_path(@tutorial) %>
 </div>
 </br>
 
-<%= render @tutorial.comments %>
+<div class="comments">
+  <%= render @tutorial.comments %>
+</div>
 
-<%= render partial: "comments/form", locals: { comment: @comment, tutorial: @tutorial } %>
+<div class="new_comment">
+  <%= render partial: "comments/form", locals: { comment: @comment, tutorial: @tutorial } %>
+</div>
 
-<div class="container">
+<div class="container ">
   <% if @tutorial.trainer == current_trainer %>
     <%= link_to "Edit Tutorial", edit_tutorial_path(@tutorial) %>
     <%= link_to "Delete Tutorial", @tutorial, method: :delete, data: { confirm: "Are you sure you want to delete this tutorial?"} %>
@@ -33,8 +39,13 @@ $(function () {
     e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.getJSON("/tutorials/" + nextId + "/tutorial_data", function(data) {
+      let video_link = 'Link To Video:' + '<a href="' + data["video_link"] + '">' + data["video_link"] + '</a>';
       $("div.container.border > h2").text(data["title"]);
       $("div.container.border > p").text(data["content"]);
+      $("div.container.video > p").html(video_link);
+      $("div.container.all_comments").html("");
+      $("div.comments").html("");
+      $("div.new_comment").html("");
       // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
     });
