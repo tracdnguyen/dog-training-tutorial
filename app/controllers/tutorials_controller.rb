@@ -70,6 +70,11 @@ class TutorialsController < ApplicationController
     @tutorials = current_trainer.tutorials
   end
 
+  def tutorial_data
+    @tutorial = Tutorial.find(params[:id])
+    render json: @tutorial
+  end
+
   private
 
   def set_tutorial
