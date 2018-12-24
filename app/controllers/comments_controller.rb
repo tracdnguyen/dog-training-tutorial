@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
       @comments = Tutorial.find(params[:tutorial_id]).comments
     elsif params[:trainer_id]
       @comments = Trainer.find(params[:trainer_id]).comments
+
+      render json: @comments, status: 200
     else
       @comments = Comment.all
     end

@@ -1,15 +1,15 @@
 $(document).on('turbolinks:load', function () {
-  LoadTutorialsOnTrainersShow();
+  LoadCommentsOnTrainersShow();
 })
 
-function LoadTutorialsOnTrainersShow () {
-  $("a.load_tutorials").on('click', function (e) {
+function LoadCommentsOnTrainersShow () {
+  $("a.load_comments").on('click', function (e) {
     $.get(this.href).success(function(json){
-      let $ul = $("div.tutorials ul")
+      let $ul = $("div.comments ul")
       $ul.html("")
 
-      json.forEach(function(tutorial){
-        $ul.append("<li>" + tutorial.title + "</li>" )
+      json.forEach(function(comment){
+        $ul.append("<li>" + comment.content + "</li>" )
       })
     })
     e.preventDefault();
