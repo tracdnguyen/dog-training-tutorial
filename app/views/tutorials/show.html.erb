@@ -14,7 +14,7 @@
 
 </br>
 
-<div class="container">
+<div class="container load_comments">
   <%= link_to "Load Comments", tutorial_comments_path(@tutorial), :class => "load_tutorial_comments" %>
 <div>
 
@@ -56,6 +56,7 @@ $(function () {
       $("div.comments").html("");
       $("div.new_comment").html("");
       $("div.container.edit_delete").html("");
+      $("div.container.load_comments").html("");
       // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
     });
