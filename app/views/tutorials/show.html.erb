@@ -16,8 +16,19 @@
 </div>
 </br>
 
+<div class="container">
+  <%= link_to "Load Comments", tutorial_comments_path(@tutorial), :class => "load_tutorial_comments" %>
+<div>
+  
 <div class="comments">
-  <%= render @tutorial.comments %>
+  <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <ol>
+          </ol>
+        </div><!-- /panel-body -->
+      </div><!-- /panel panel-default -->
+  </div><!-- /container -->
 </div>
 
 <div class="new_comment">
