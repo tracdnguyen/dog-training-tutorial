@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
   def index
     if params[:tutorial_id]
       @comments = Tutorial.find(params[:tutorial_id]).comments
+
+      render json: @comments, status: 200
     elsif params[:trainer_id]
       @comments = Trainer.find(params[:trainer_id]).comments
 
