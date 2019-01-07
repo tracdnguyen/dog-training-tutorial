@@ -5,3 +5,9 @@ class Comment {
     this.content = obj.content;
   }
 }
+
+Comment.prototype.commentHTML = function () {
+  return (`
+    <li>${this.content}</li>
+  `)
+}
