@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function () {
   LoadCommentsOnTrainersShow();
+  LoadCommentsOnTutorialsShow();
 })
 
 function LoadCommentsOnTrainersShow () {
@@ -13,5 +14,20 @@ function LoadCommentsOnTrainersShow () {
       })
     })
     e.preventDefault();
+  })
+}
+
+function LoadCommentsOnTutorialsShow () {
+  $("a.load_tutorial_comments").on('click', function (e) {
+    e.preventDefault();
+    $.get(this.href).success(function(json){
+      let $ol = $("div.panel-body ol")
+      $ol.html("")
+
+      json.forEach(function(comment){
+        let newComment = new Comment(comment)
+        $ol.append(newComment.commentHTML())
+      })
+    })
   })
 }
