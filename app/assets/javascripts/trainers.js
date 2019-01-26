@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function () {
   LoadCommentsOnTrainersShow();
   LoadCommentsOnTutorialsShow();
+  LoadCommentsOnTutorialIndex();
 })
 
 function LoadCommentsOnTrainersShow () {
