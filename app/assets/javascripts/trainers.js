@@ -31,3 +31,18 @@ function LoadCommentsOnTutorialsShow () {
     })
   })
 }
+
+function LoadCommentsOnTutorialIndex () {
+  $("a.tutorial_comments_index").on('click', function (e) {
+    e.preventDefault();
+    $.get(this.href).success(function(json){
+      let $ol = $("div.tutorial_comments ol")
+      $ol.html("")
+
+      json.forEach(function(comment){
+        let fillComments = new Comment(comment)
+        $ol.append(fillComments.commentHTML())
+      })
+    })
+  })
+}
