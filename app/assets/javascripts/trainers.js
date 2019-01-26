@@ -37,7 +37,10 @@ function LoadCommentsOnTutorialIndex () {
   $("a.tutorial_comments_index").on('click', function (e) {
     e.preventDefault();
     $.get(this.href).success(function(json){
-      let $ol = $("div.tutorial_comments ol")
+      console.log(json)
+      console.log(json[0]["tutorial_id"])
+      let tutorial_id = json[0]["tutorial_id"]
+      let $ol = $(`div.tutorial_comments${tutorial_id} ol`)
       $ol.html("")
 
       json.forEach(function(comment){
