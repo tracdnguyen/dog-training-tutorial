@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @tutorial.comments.build(comment_params)
     @comment.trainer_id = current_trainer.id
+    @comment.trainer_email = current_trainer.email
     if @comment.save
       flash[:notice] = "Successfully Created Comment"
       redirect_to tutorial_path(@tutorial)
