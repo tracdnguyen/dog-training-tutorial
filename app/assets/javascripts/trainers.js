@@ -2,6 +2,7 @@ $(document).on('turbolinks:load', function () {
   LoadCommentsOnTrainersShow();
   LoadCommentsOnTutorialsShow();
   LoadCommentsOnTutorialIndex();
+  CreateCommentWithAjax();
 })
 
 function LoadCommentsOnTrainersShow () {
@@ -48,5 +49,22 @@ function LoadCommentsOnTutorialIndex () {
         $ol.append(fillComments.commentHTML())
       })
     })
+  })
+}
+
+function CreateCommentWithAjax () {
+  $("#new_comment").on("submit", function(e){
+    alert("something")
+    console.log(this)
+    $.ajax({
+      type: ($("input[name='_method']").val() || this.method),
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response){
+
+
+      }
+    })
+    e.preventDefault();
   })
 }
