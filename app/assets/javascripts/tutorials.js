@@ -7,3 +7,9 @@ class Tutorial {
     this.comments = obj.comments
   }
 }
+
+Tutorial.prototype.formatVideoLink = () => {
+  return (`
+    Link To Video: <a href="${this.video_link}">${this.video_link}</a>
+  `)
+}
