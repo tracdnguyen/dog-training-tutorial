@@ -5,15 +5,15 @@ $(document).on('turbolinks:load', function () {
 })
 
 function LoadCommentsOnTutorialsShow () {
-  $("a.load_tutorial_comments").on('click', function (e) {
+  $("a.loadCommentsAjax").on('click', function (e) {
     e.preventDefault();
-    $.get(this.href).success(function(json){
-      let $ol = $("div.panel-body ol")
-      $ol.html("")
+    $.get(this.href).success((json) => {
+      let $ul = $("div.container.loadAjaxComments ul")
+      $ul.html("")
 
-      json.forEach(function(comment){
-        let newComment = new Comment(comment)
-        $ol.append(newComment.commentHTML())
+      json.forEach((comment) => {
+        let loadComments = new Comment(comment)
+        $ul.append(loadComments.createCommentAjax())
       })
     })
   })
