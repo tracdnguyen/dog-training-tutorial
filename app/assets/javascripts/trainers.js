@@ -41,7 +41,11 @@ function CreateCommentWithAjax () {
       type: ($("input[name='_method']").val() || this.method),
       url: this.action,
       data: $(this).serialize(),
-      success: function(response){
+      success: (response) => {
+        $("#comment_content").val("");
+        var $ul = $("div.container.loadAjaxComments ul")
+        let addComment = new Comment(response)
+        $ul.append(addComment.createCommentAjax())
       }
     })
     e.preventDefault();
