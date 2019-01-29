@@ -22,14 +22,12 @@ function LoadCommentsOnTutorialsShow () {
 function LoadCommentsOnTutorialIndex () {
   $("a.tutorial_comments_index").on('click', function (e) {
     e.preventDefault();
-    $.get(this.href).success(function(json){
-      console.log(json)
-      console.log(json[0]["tutorial_id"])
+    $.get(this.href).success((json) => {
       let tutorial_id = json[0]["tutorial_id"]
       let $ol = $(`div.tutorial_comments${tutorial_id} ol`)
       $ol.html("")
 
-      json.forEach(function(comment){
+      json.forEach((comment) => {
         let fillComments = new Comment(comment)
         $ol.append(fillComments.commentHTML())
       })
