@@ -1,6 +1,5 @@
 class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :destroy, :update]
-  before_action :authenticate_trainer!, except: [:index, :show]
 
   def index
     if params[:trainer_id]

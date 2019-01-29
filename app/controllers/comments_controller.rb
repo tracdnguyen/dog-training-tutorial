@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :load_tutorial, only: [:create, :edit, :update, :destroy]
   before_action :load_tutorial_comment, only: [:edit, :update, :destroy]
-  before_action :authenticate_trainer!
+
 
   def index
     if params[:tutorial_id]
