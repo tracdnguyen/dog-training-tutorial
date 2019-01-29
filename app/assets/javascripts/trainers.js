@@ -1,23 +1,8 @@
 $(document).on('turbolinks:load', function () {
-  LoadCommentsOnTrainersShow();
   LoadCommentsOnTutorialsShow();
   LoadCommentsOnTutorialIndex();
   CreateCommentWithAjax();
 })
-
-function LoadCommentsOnTrainersShow () {
-  $("a.load_comments").on('click', function (e) {
-    $.get(this.href).success(function(json){
-      let $ul = $("div.comments ul")
-      $ul.html("")
-
-      json.forEach(function(comment){
-        $ul.append("<li>" + comment.content + "</li>" )
-      })
-    })
-    e.preventDefault();
-  })
-}
 
 function LoadCommentsOnTutorialsShow () {
   $("a.load_tutorial_comments").on('click', function (e) {
@@ -61,8 +46,6 @@ function CreateCommentWithAjax () {
       url: this.action,
       data: $(this).serialize(),
       success: function(response){
-
-
       }
     })
     e.preventDefault();
