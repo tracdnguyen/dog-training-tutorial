@@ -47,16 +47,22 @@ $(function () {
     e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.getJSON("/tutorials/" + nextId + "/tutorial_data", function(data) {
-      let video_link = 'Link To Video:' + '<a href="' + data["video_link"] + '">' + data["video_link"] + '</a>';
+
+      let showNext = new Tutorial(data)
+      let page = 0
+      showNext.comments.forEach((comment) => {
+        var $ul = $("div.nextPageComments ul")
+        $ul.append(showNext.showNextComments(comment))
+      })
+
+      $("div.container.video").html(showNext.formatVideoLink())
       $("div.container.border > h2").text(data["title"]);
       $("div.container.border > p").text(data["content"]);
-      $("div.container.video > p").html(video_link);
-      $("div.container.all_comments").html("");
-      $("div.comments").html("");
+      $("p.container").html("");
       $("div.new_comment").html("");
       $("div.container.edit_delete").html("");
       $("div.container.load_comments").html("");
-      // re-set the id to current on the link
+
       $(".js-next").attr("data-id", data["id"]);
     });
   });
