@@ -1,6 +1,6 @@
 # Dog Training Tutorial Rails Application
 
-This app is designed to be a tutorial website for dog training which users can signup/login and create their own tutorials and comment on other tutorials.
+This app is designed to be a tutorial website for dog training which users can signup/login and create their own tutorials and comment on other tutorials with features loaded dynamically via AJAX.
 
 ## Installation
 Fork and clone repo:
