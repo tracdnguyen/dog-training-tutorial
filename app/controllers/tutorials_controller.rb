@@ -2,14 +2,7 @@ class TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :destroy, :update]
 
   def index
-    if params[:trainer_id]
-      @tutorials = Trainer.find(params[:trainer_id]).tutorials
-
-      #render 'tutorials/index', :layout => false
-      render :json => @tutorials
-    else
-      @tutorials = Tutorial.all
-    end
+    @tutorials = Tutorial.all
   end
 
   def new
