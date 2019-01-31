@@ -47,8 +47,10 @@ $(function () {
     e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.getJSON("/tutorials/" + nextId + "/tutorial_data", function(data) {
+      $("div.nextPageComments ul").html("")
 
       let showNext = new Tutorial(data)
+      $("div.nextPageComments ul").html("")
       showNext.comments.forEach((comment) => {
         var $ul = $("div.nextPageComments ul")
         $ul.append(showNext.showNextComments(comment))
@@ -59,8 +61,9 @@ $(function () {
       $("p.container").html("");
       $("div.new_comment").html("");
       $("div.container.edit_delete").html("");
-      $("div.container.loadAjaxComments").html("");
+      $("div.container.loadAjaxComments").html("")
       $(".js-next").attr("data-id", data["id"]);
+
     });
   });
 });
