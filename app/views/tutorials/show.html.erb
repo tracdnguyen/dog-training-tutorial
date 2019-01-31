@@ -49,12 +49,10 @@ $(function () {
     $.getJSON("/tutorials/" + nextId + "/tutorial_data", function(data) {
 
       let showNext = new Tutorial(data)
-      let page = 0
       showNext.comments.forEach((comment) => {
         var $ul = $("div.nextPageComments ul")
         $ul.append(showNext.showNextComments(comment))
       })
-
       $("div.container.video").html(showNext.formatVideoLink())
       $("div.container.border > h2").text(data["title"]);
       $("div.container.border > p").text(data["content"]);
@@ -62,7 +60,6 @@ $(function () {
       $("div.new_comment").html("");
       $("div.container.edit_delete").html("");
       $("div.container.loadAjaxComments").html("");
-
       $(".js-next").attr("data-id", data["id"]);
     });
   });
